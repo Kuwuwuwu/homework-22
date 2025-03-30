@@ -23,13 +23,15 @@ console.log('#5. JavaScript homework example file')
 // console.log(counter()) // 0
 // console.log(counter()) // 1
 
-const counter = (function() {
-    let count = -1;
-    return function(n) {
-        if (n !== undefined) {
-            count = n;
-        } else {
+const counter = (function () {
+    let count = 0; 
+    return function (n) {
+        if (n === undefined) {
             count++;
+        } else if (typeof n === 'number' && Number.isInteger(n)) {
+            count = n; 
+        } else {
+            console.warn("Invalid input: n must be an integer.");
         }
         return count;
     };
