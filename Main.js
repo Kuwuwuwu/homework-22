@@ -27,15 +27,33 @@ const counter = (function () {
     let count = 0; 
     return function (n) {
         if (n === undefined) {
-            count++;
+            count++; 
         } else if (typeof n === 'number' && Number.isInteger(n)) {
             count = n; 
         } else {
-            console.warn("Invalid input: n must be an integer.");
+            console.warn(`Invalid input: "${n}" is not a valid integer.`);
+            return count; 
         }
         return count;
     };
 })();
+
+// Тестові випадки
+console.log(counter());    // 1
+console.log(counter());    // 2
+console.log(counter(10));  // 10
+console.log(counter());    // 11
+console.log(counter("text")); // Попередження, виведе 11
+console.log(counter(4.5)); // Попередження, виведе 11
+console.log(counter(true)); // Попередження, виведе 11
+console.log(counter(false)); // Попередження, виведе 11
+console.log(counter(null)); // Попередження, виведе 11
+console.log(counter(undefined)); // Збільшить значення, виведе 12
+console.log(counter(50));  // 50
+console.log(counter());    // 51
+console.log(counter(-5));  // -5
+console.log(counter());    // -4
+
 
 /*
  * #2
