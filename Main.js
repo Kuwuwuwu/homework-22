@@ -186,7 +186,6 @@ console.log(myMax(list)); // 233
 
 export { counter, counterFactory, myPow, myMax, myMul, myDouble, myTriple }
 
-// Function to multiply two numbers
 const myMul = (a, b) => {
   return a * b;
 };
